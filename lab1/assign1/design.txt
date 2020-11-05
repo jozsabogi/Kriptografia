@@ -1,13 +1,30 @@
-Name: <YOUR NAME>
-SUNet: <SUNet ID>
-
-In 1-3 sentences per section, comment on your approach to each of the parts of the assignment. What was your high-level strategy? How did you translate that into code? Did you make use of any Pythonic practices? We want you to reflect on your coding style, and how you are maximally leveraging Python's utilities.
+Name: <JÓZSA BOGLÁRKA>
+SUNet: <jbim1827>
 
 # Caesar Cipher
+
+A Caesar cipher involves shifting each character in a plaintext by three letters forward:
+A -> D, B -> E, C -> F, etc... 
+At the end of the alphabet, the cipher mapping wraps around the end, so:
+..., X -> A, Y -> B, Z -> C.
+
+In the Caesar Cipher algrythm we need to shift every character by 3 letters forward (encrypt) or 3 letters back (decrypt).
 
 
 # Vigenere Cipher
 
+A Vigenere cipher is similar in nature to a Caesar cipher. However, in a Vigenere cipher, every character in the plaintext can be shifted by a variable amount. The amount to shift any letter in the plaintext is determined by a keyword, where 'A' corresponds to shift of 0 (no shift), 'B' corresponds to a shift of 1, ..., and 'Z' corresponds to a shift of 25, wrapping around if necessary (as with the Caesar cipher).
+The keyword is repeated or truncated as necessary to fit the length of the plaintext. 
 
-# Merkle-Hellman Knapsack Cryptosystem
+We create an array of shifted values for the text and the keyword and then we shift forward(encrypt) or backward(decrypt) every character by this variable amount.
 
+
+# Scytale Cipher
+
+We create a scytale(table), where the number of rows is equal to the circumference, and then we write the message diagonally down (around) the scytale.
+The ciphertext is then obtained by reading from left to right, top to bottom.
+
+# Railfence Cipher
+
+In this algorythm we create a grid where the number of rows is equal to the number of rails, and we write the text in Zig-Zag (top to buttomand then bottom to top etc.)
+The ciphertext is obtained by reading the rails from left to right, top to bottom.
