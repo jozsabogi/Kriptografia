@@ -1,0 +1,51 @@
+Name: <JÓZSA BOGLÁRKA>
+SUNet: <jbim1827>
+
+# MERKLE-HELLMAN
+
+The Merkle-Hellman Cryptosystem involves three parts:
+    1. Key Generation
+    2. Encryption
+    3. Decryption
+
+1. Key Generation
+
+    In the key generation step, we will construct a private key and a public key.
+
+    Choose a fixed integer n for the chunk size (in bits) of messages to send. For this assignment, we'll use n = 8 bits, so we can encrypt and decrypt messages one byte at a time.
+
+    First, we must build a superincreasing sequence of n nonzero natural numbers:
+    w = (w_1, w_2, ..., w_n)
+
+    Next, we pick a random integer q, such that q is greater than the sum of the the elements in w. To leverage code we've already written, let's choose q between [total + 1, 2 * total], where total is the sum over all elements of w.
+
+    Then, we choose a random integer r such that gcd(r, q) = 1 (i.e. r and q are coprime). To accomplish this, it's sufficient to just generate random numbers in the range [2, q-1] until you find some r such that r and q are coprime.
+
+    Finally, we calculate the tuple
+
+    beta = (b_1, b_2, ..., b_n)
+    where
+    b_i = r × w_i mod q
+
+    The public key is beta, while the private key is (w, q, r).
+
+
+2. Encryption
+    Encrypting this character is now equivalent to encrypting an 8-bit message. Define
+
+    alpha = (a_1, a_2, ..., a_n)
+    where a_i is the i-th bit of the message and a_i is either 0 or 1. Next, we calculate:
+
+    c = sum of a_i × b_i for i = 1 to n
+
+
+3. Decryption 
+
+    In order to decrypt a ciphertext c and recover a single character, a receiver would have to determine the message bits a_i such that they satisfy
+
+    c = sum of a_i × b_i for i = 1 to n
+
+
+
+
+# SOLITAIRE
